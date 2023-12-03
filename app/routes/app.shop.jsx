@@ -35,7 +35,7 @@ export const loader = async ({ request }) => {
 
 function shop() {
   const { data } = useLoaderData();
-  console.log("d==", data);
+
   return (
     <>
       <Page fullWidth>
