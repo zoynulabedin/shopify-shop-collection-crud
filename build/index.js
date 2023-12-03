@@ -362,7 +362,16 @@ __export(app_collection_exports, {
 });
 var import_react3 = require("react"), import_polaris2 = require("@shopify/polaris"), import_node3 = require("@remix-run/node");
 var import_react4 = require("@remix-run/react");
-var import_polaris_icons = require("@shopify/polaris-icons"), import_jsx_dev_runtime4 = require("react/jsx-dev-runtime"), loader = async ({ request }) => {
+var import_sweetalert = __toESM(require("sweetalert")), import_polaris_icons = require("@shopify/polaris-icons"), import_jsx_dev_runtime4 = require("react/jsx-dev-runtime"), HandleDeleteCollection = (id) => {
+  (0, import_sweetalert.default)({
+    title: "Are you sure?",
+    text: "Are you sure that you want to delete this Brand?",
+    icon: "warning",
+    dangerMode: !0
+  }).then((willDelete) => {
+    alert(id), willDelete && (0, import_sweetalert.default)("Deleted!", "Your imaginary file has been deleted!", "success");
+  });
+}, loader = async ({ request }) => {
   let { admin } = await authenticate.admin(request), data = await (await admin.graphql(
     `#graphql
     query {
@@ -380,99 +389,109 @@ var import_polaris_icons = require("@shopify/polaris-icons"), import_jsx_dev_run
       }
     }`
   )).json();
-  return console.log(...oo_oo("827405288_40_2_40_36_4", "collections==", data)), data;
+  return console.log(...oo_oo("158048718_56_2_56_36_4", "collections==", data)), data;
 }, Collection = () => {
   let { data } = (0, import_react4.useLoaderData)(), objectData = data.collections.edges;
-  return console.log(...oo_oo("827405288_46_2_46_25_4", objectData)), /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Page, { fullWidth: !0, children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Layout, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Layout.Section, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.LegacyCard, { title: "Collections Name and ID", sectioned: !0, children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("table", { style: { width: "100%", textAlign: "left" }, children: [
+  return console.log(...oo_oo("158048718_62_2_62_25_4", objectData)), /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Page, { fullWidth: !0, children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Layout, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Layout.Section, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.LegacyCard, { title: "Collections Name and ID", sectioned: !0, children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("table", { style: { width: "100%", textAlign: "left" }, children: [
     /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("tr", { children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("th", { children: "Collections Name" }, void 0, !1, {
         fileName: "app/routes/app.collection.jsx",
-        lineNumber: 54,
+        lineNumber: 70,
         columnNumber: 17
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("th", { children: "sortOrder" }, void 0, !1, {
         fileName: "app/routes/app.collection.jsx",
-        lineNumber: 55,
+        lineNumber: 71,
         columnNumber: 17
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("th", { children: "Action" }, void 0, !1, {
         fileName: "app/routes/app.collection.jsx",
-        lineNumber: 56,
+        lineNumber: 72,
         columnNumber: 17
       }, this)
     ] }, void 0, !0, {
       fileName: "app/routes/app.collection.jsx",
-      lineNumber: 53,
+      lineNumber: 69,
       columnNumber: 15
     }, this),
     objectData.map((item, index) => /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("tr", { children: [
       /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { children: item.node.title }, void 0, !1, {
         fileName: "app/routes/app.collection.jsx",
-        lineNumber: 60,
+        lineNumber: 76,
         columnNumber: 19
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { children: item.node.sortOrder }, void 0, !1, {
         fileName: "app/routes/app.collection.jsx",
-        lineNumber: 61,
+        lineNumber: 77,
         columnNumber: 19
       }, this),
       /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("td", { style: { display: "flex", gap: "10px" }, children: [
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("a", { href: "", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Icon, { source: import_polaris_icons.ViewMajor, tone: "base" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Button, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Icon, { source: import_polaris_icons.ViewMajor, tone: "base" }, void 0, !1, {
           fileName: "app/routes/app.collection.jsx",
-          lineNumber: 64,
+          lineNumber: 80,
           columnNumber: 23
         }, this) }, void 0, !1, {
           fileName: "app/routes/app.collection.jsx",
-          lineNumber: 63,
+          lineNumber: 79,
           columnNumber: 21
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("a", { href: "", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Icon, { source: import_polaris_icons.EditMajor, tone: "base" }, void 0, !1, {
+        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Button, { children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Icon, { source: import_polaris_icons.EditMajor, tone: "base" }, void 0, !1, {
           fileName: "app/routes/app.collection.jsx",
-          lineNumber: 67,
+          lineNumber: 83,
           columnNumber: 23
         }, this) }, void 0, !1, {
           fileName: "app/routes/app.collection.jsx",
-          lineNumber: 66,
+          lineNumber: 82,
           columnNumber: 21
         }, this),
-        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)("a", { href: "", children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Icon, { source: import_polaris_icons.DeleteMajor, tone: "base" }, void 0, !1, {
-          fileName: "app/routes/app.collection.jsx",
-          lineNumber: 70,
-          columnNumber: 23
-        }, this) }, void 0, !1, {
-          fileName: "app/routes/app.collection.jsx",
-          lineNumber: 69,
-          columnNumber: 21
-        }, this)
+        /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(
+          import_polaris2.Button,
+          {
+            onClick: () => HandleDeleteCollection(item.node.id),
+            children: /* @__PURE__ */ (0, import_jsx_dev_runtime4.jsxDEV)(import_polaris2.Icon, { source: import_polaris_icons.DeleteMajor, tone: "base" }, void 0, !1, {
+              fileName: "app/routes/app.collection.jsx",
+              lineNumber: 88,
+              columnNumber: 23
+            }, this)
+          },
+          void 0,
+          !1,
+          {
+            fileName: "app/routes/app.collection.jsx",
+            lineNumber: 85,
+            columnNumber: 21
+          },
+          this
+        )
       ] }, void 0, !0, {
         fileName: "app/routes/app.collection.jsx",
-        lineNumber: 62,
+        lineNumber: 78,
         columnNumber: 19
       }, this)
     ] }, index, !0, {
       fileName: "app/routes/app.collection.jsx",
-      lineNumber: 59,
+      lineNumber: 75,
       columnNumber: 17
     }, this))
   ] }, void 0, !0, {
     fileName: "app/routes/app.collection.jsx",
-    lineNumber: 52,
+    lineNumber: 68,
     columnNumber: 13
   }, this) }, void 0, !1, {
     fileName: "app/routes/app.collection.jsx",
-    lineNumber: 51,
+    lineNumber: 67,
     columnNumber: 11
   }, this) }, void 0, !1, {
     fileName: "app/routes/app.collection.jsx",
-    lineNumber: 50,
+    lineNumber: 66,
     columnNumber: 9
   }, this) }, void 0, !1, {
     fileName: "app/routes/app.collection.jsx",
-    lineNumber: 49,
+    lineNumber: 65,
     columnNumber: 7
   }, this) }, void 0, !1, {
     fileName: "app/routes/app.collection.jsx",
-    lineNumber: 48,
+    lineNumber: 64,
     columnNumber: 5
   }, this);
 }, app_collection_default = Collection;
@@ -1415,7 +1434,7 @@ function ErrorBoundary() {
 var headers = (headersArgs) => import_server4.boundary.headers(headersArgs);
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-H6B6JOVW.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-II6HIUQK.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-ILI2N36M.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-4AITHKSX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-OOTDLQ5X.js", imports: ["/build/_shared/chunk-3GJP5LZF.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/app": { id: "routes/app", parentId: "root", path: "app", index: void 0, caseSensitive: void 0, module: "/build/routes/app-ZQJK4IUG.js", imports: ["/build/_shared/chunk-NMZL6IDN.js", "/build/_shared/chunk-MIBD2XN6.js", "/build/_shared/chunk-G7CHZRZX.js", "/build/_shared/chunk-SU66BP3D.js", "/build/_shared/chunk-L73NP4IV.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !0 }, "routes/app._index": { id: "routes/app._index", parentId: "routes/app", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/app._index-3VW5C5OK.js", imports: void 0, hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/app.additional": { id: "routes/app.additional", parentId: "routes/app", path: "additional", index: void 0, caseSensitive: void 0, module: "/build/routes/app.additional-YPFLLL37.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/app.collection": { id: "routes/app.collection", parentId: "routes/app", path: "collection", index: void 0, caseSensitive: void 0, module: "/build/routes/app.collection-N6NZ5R7T.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/app.shop": { id: "routes/app.shop", parentId: "routes/app", path: "shop", index: void 0, caseSensitive: void 0, module: "/build/routes/app.shop-XYESPX4F.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/auth.$": { id: "routes/auth.$", parentId: "root", path: "auth/*", index: void 0, caseSensitive: void 0, module: "/build/routes/auth.$-4B5WQABX.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/auth.login": { id: "routes/auth.login", parentId: "root", path: "auth/login", index: void 0, caseSensitive: void 0, module: "/build/routes/auth.login-GDNZCMII.js", imports: ["/build/_shared/chunk-3GJP5LZF.js", "/build/_shared/chunk-MIBD2XN6.js", "/build/_shared/chunk-G7CHZRZX.js", "/build/_shared/chunk-L73NP4IV.js"], hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/webhooks": { id: "routes/webhooks", parentId: "root", path: "webhooks", index: void 0, caseSensitive: void 0, module: "/build/routes/webhooks-JFV2P4HI.js", imports: void 0, hasAction: !0, hasLoader: !1, hasErrorBoundary: !1 } }, version: "26d59372", hmr: { runtime: "/build/_shared/chunk-ILI2N36M.js", timestamp: 1701628464204 }, url: "/build/manifest-26D59372.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-H6B6JOVW.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-II6HIUQK.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-ILI2N36M.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-4AITHKSX.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/_index": { id: "routes/_index", parentId: "root", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/_index-OOTDLQ5X.js", imports: ["/build/_shared/chunk-3GJP5LZF.js", "/build/_shared/chunk-G7CHZRZX.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/app": { id: "routes/app", parentId: "root", path: "app", index: void 0, caseSensitive: void 0, module: "/build/routes/app-ZQJK4IUG.js", imports: ["/build/_shared/chunk-NMZL6IDN.js", "/build/_shared/chunk-MIBD2XN6.js", "/build/_shared/chunk-G7CHZRZX.js", "/build/_shared/chunk-SU66BP3D.js", "/build/_shared/chunk-L73NP4IV.js"], hasAction: !1, hasLoader: !0, hasErrorBoundary: !0 }, "routes/app._index": { id: "routes/app._index", parentId: "routes/app", path: void 0, index: !0, caseSensitive: void 0, module: "/build/routes/app._index-3VW5C5OK.js", imports: void 0, hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/app.additional": { id: "routes/app.additional", parentId: "routes/app", path: "additional", index: void 0, caseSensitive: void 0, module: "/build/routes/app.additional-YPFLLL37.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 }, "routes/app.collection": { id: "routes/app.collection", parentId: "routes/app", path: "collection", index: void 0, caseSensitive: void 0, module: "/build/routes/app.collection-ZKKMVSN5.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/app.shop": { id: "routes/app.shop", parentId: "routes/app", path: "shop", index: void 0, caseSensitive: void 0, module: "/build/routes/app.shop-XYESPX4F.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/auth.$": { id: "routes/auth.$", parentId: "root", path: "auth/*", index: void 0, caseSensitive: void 0, module: "/build/routes/auth.$-4B5WQABX.js", imports: void 0, hasAction: !1, hasLoader: !0, hasErrorBoundary: !1 }, "routes/auth.login": { id: "routes/auth.login", parentId: "root", path: "auth/login", index: void 0, caseSensitive: void 0, module: "/build/routes/auth.login-GDNZCMII.js", imports: ["/build/_shared/chunk-3GJP5LZF.js", "/build/_shared/chunk-MIBD2XN6.js", "/build/_shared/chunk-G7CHZRZX.js", "/build/_shared/chunk-L73NP4IV.js"], hasAction: !0, hasLoader: !0, hasErrorBoundary: !1 }, "routes/webhooks": { id: "routes/webhooks", parentId: "root", path: "webhooks", index: void 0, caseSensitive: void 0, module: "/build/routes/webhooks-JFV2P4HI.js", imports: void 0, hasAction: !0, hasLoader: !1, hasErrorBoundary: !1 } }, version: "f5667e4f", hmr: { runtime: "/build/_shared/chunk-ILI2N36M.js", timestamp: 1701630045612 }, url: "/build/manifest-F5667E4F.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public/build", future = { v3_fetcherPersist: !1 }, publicPath = "/build/", entry = { module: entry_server_exports }, routes = {
