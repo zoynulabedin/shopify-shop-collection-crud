@@ -2,20 +2,20 @@
 
 name = "Crud-app"
 client_id = "561aa58c20e8b3015d5b753a461a75e4"
-application_url = "https://ul-hurt-shall-yeah.trycloudflare.com"
+application_url = "https://cutting-exploration-minerals-brave.trycloudflare.com"
 embedded = true
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
+scopes = "write_products,read_products,read_product_listings"
 use_legacy_install_flow = true
 
 [auth]
 redirect_urls = [
-  "https://ul-hurt-shall-yeah.trycloudflare.com/auth/callback",
-  "https://ul-hurt-shall-yeah.trycloudflare.com/auth/shopify/callback",
-  "https://ul-hurt-shall-yeah.trycloudflare.com/api/auth/callback",
-  "https://ul-hurt-shall-yeah.trycloudflare.com/.shopify/graphiql/auth/callback"
+  "https://cutting-exploration-minerals-brave.trycloudflare.com/auth/callback",
+  "https://cutting-exploration-minerals-brave.trycloudflare.com/auth/shopify/callback",
+  "https://cutting-exploration-minerals-brave.trycloudflare.com/api/auth/callback",
+  "https://cutting-exploration-minerals-brave.trycloudflare.com/.shopify/graphiql/auth/callback"
 ]
 
 [webhooks]
