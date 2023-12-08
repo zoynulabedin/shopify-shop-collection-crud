@@ -1,76 +1,58 @@
-import React from "react";
 import {
   Box,
   Card,
-  Divider,
   Layout,
+  Link,
+  List,
   Page,
   Text,
-  LegacyCard,
-  Icon,
+  BlockStack,
+  Button,
+  Frame,
+  Modal,
+  TextContainer,
 } from "@shopify/polaris";
-import { json } from "@remix-run/node";
 import { authenticate } from "../shopify.server";
 import { useLoaderData } from "@remix-run/react";
-import shopify from "../shopify.server";
-import { DeleteMajor, EditMajor, ViewMajor } from "@shopify/polaris-icons";
+
 export const loader = async ({ request }) => {
   const { admin } = await authenticate.admin(request);
 
   const response = await admin.graphql(
     `#graphql
-      query {
-        shop {
-          name
-         id
-         }
-      }`
+    query {
+      shop {
+        name
+        id      
+      }
+    }`
   );
 
   const data = await response.json();
 
-  console.log("res==", data);
   return data;
 };
 
-function shop() {
+export default function Shop() {
   const { data } = useLoaderData();
-
   return (
-    <>
-      <Page fullWidth>
-        <Layout>
-          <Layout.Section>
-            <LegacyCard title="Shop Name and ID" sectioned>
-              <table style={{ width: "100%", textAlign: "left" }}>
-                <tr>
-                  <th>Shop Name</th>
-                  <th>Shop ID</th>
-                  <th>Action</th>
-                </tr>
-
-                <tr>
-                  <td>{data.shop.name}</td>
-                  <td>{data.shop.id}</td>
-                  <td style={{ display: "flex", gap: "10px" }}>
-                    <a href="">
-                      <Icon source={ViewMajor} tone="base" />
-                    </a>
-                    <a href="">
-                      <Icon source={EditMajor} tone="base" />
-                    </a>
-                    <a href="">
-                      <Icon source={DeleteMajor} tone="base" />
-                    </a>
-                  </td>
-                </tr>
-              </table>
-            </LegacyCard>
-          </Layout.Section>
-        </Layout>
-      </Page>
-    </>
+    <Page>
+      <ui-title-bar title="Shop Details" />
+      <Layout>
+        <Layout.Section>
+          <Card>
+            <BlockStack gap="200">
+              <Text as="h2" variant="headingMd">
+                Your Shop Details
+              </Text>
+              <List>
+                <List.Item>Shope Name: {data.shop.name}</List.Item>
+                <List.Item>Shop Id: {data.shop.id}</List.Item>
+              </List>
+            </BlockStack>
+          </Card>
+        </Layout.Section>
+      </Layout>
+    </Page>
   );
 }
-
-export default shop;
