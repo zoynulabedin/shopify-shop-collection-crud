@@ -20,3 +20,10 @@ model Session {
   accessToken String
   userId      BigInt?
 }
+
+model Faq {
+  id       Int    @id @default(autoincrement())
+  question String
+  answer   String
+  group    String
+}
